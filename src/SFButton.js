@@ -29,11 +29,7 @@ export default class SFButton extends Component {
         iconTitle:2,
         custom:3
     }
-    /**
-     * @param isShowAni 是否显示图片放大动画
-     * @param isShowShare 是否显示分享按钮
-     * @param onShare 分享按钮点击⌚️ 参数：index
-     * */
+
     static propTypes = {
         type:PropTypes.number.isRequired,
         tag:PropTypes.any,
@@ -63,6 +59,7 @@ export default class SFButton extends Component {
     static defaultProps = {
         isAnimated:false,
         tag:0,
+        titleColor:'black',
         titleAlign : 'center',
         titleFontSize : 16,
         titleFontWeight : 'normal',
@@ -80,6 +77,9 @@ export default class SFButton extends Component {
         if (this.props.isAnimated){
             this.scale.setValue(0.8)
         }
+        if (this.props.onPressIn){
+            this.props.onPressIn(this.props.tag);
+        }
     }
     onPressOut = () => {
         this.setState({
@@ -87,6 +87,9 @@ export default class SFButton extends Component {
         })
         if (this.props.isAnimated){
             this.scale.setValue(1)
+        }
+        if (this.props.onPressOut){
+            this.props.onPressOut(this.props.tag);
         }
     }
     render_title = () => {
