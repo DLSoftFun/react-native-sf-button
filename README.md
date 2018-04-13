@@ -7,6 +7,7 @@
 # 安装
 > npm install react-native-sf-button
 
+![show](./show.gif)
 
 # Props 公共属性
 |  parameter  |  type  |  required  |   description  |  default  |
